@@ -1,0 +1,1143 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.device.MainActivity$PlaceholderFragment" >
+
+    <!-- Relative設計畫面，上(抽屜) 右上(save) 右下(抽屜) -->
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" >
+
+        <!-- 畫布 -->
+
+        <ImageView
+            android:id="@+id/canvas"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" />
+
+        <!-- 工具列抽屜 -->
+
+        <SlidingDrawer
+            android:id="@+id/sd_top"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/save"
+            android:content="@+id/content_t"
+            android:handle="@+id/handle_t"
+            android:rotation="180" >
+
+            <Button
+                android:id="@+id/handle_t"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:background="#EEDFCC"
+                android:text="" />
+
+            <!-- 用relative來排列工具 -->
+
+            <RelativeLayout
+                android:id="@+id/content_t"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="#EEDFCC" >
+
+                <!-- 新建 -->
+
+                <ImageButton
+                    android:id="@+id/newpic"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/newpic" />
+
+                <!-- 開啟舊檔 -->
+
+                <ImageButton
+                    android:id="@+id/folder"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/newpic"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/folder" />
+
+                <!-- 上一步 -->
+
+                <ImageButton
+                    android:id="@+id/undo"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/folder"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/undo" />
+
+                <!-- 下一步 -->
+
+                <ImageButton
+                    android:id="@+id/redo"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/undo"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/redo" />
+
+                <!-- 複製 -->
+
+                <ImageButton
+                    android:id="@+id/copy"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/redo"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/copy" />
+
+                <!-- 貼上 -->
+
+                <ImageButton
+                    android:id="@+id/paste"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/copy"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/paste" />
+
+                <!-- 文字 -->
+
+                <ImageButton
+                    android:id="@+id/create_text"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/paste"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/newtext" />
+                
+                <!-- 鉛筆 -->
+
+                <ImageButton
+                    android:id="@+id/pencil"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/create_text"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/pencil" />
+
+                <!-- 註記 -->
+
+                <ImageButton
+                    android:id="@+id/comment"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/pencil"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/comment" />
+                
+                <!-- 群組 -->
+
+                <ImageButton
+                    android:id="@+id/group"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/comment"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/group" />
+                
+                <!-- 關於 -->
+
+                <ImageButton
+                    android:id="@+id/about"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/about" />
+
+                <!-- 匯出 -->
+
+                <ImageButton
+                    android:id="@+id/export"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/about"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/export" />
+
+                <!-- 分享 -->
+
+                <ImageButton
+                    android:id="@+id/share"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/export"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/share" />
+
+            </RelativeLayout>
+        </SlidingDrawer>
+
+        <!-- SAVE按鈕 -->
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/save" />
+
+        <!-- 圖形抽屜 -->
+
+        <SlidingDrawer
+            android:id="@+id/sd_right"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/save"
+            android:content="@+id/content_r"
+            android:handle="@+id/handle_r"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/handle_r"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:background="#EEDFCC" />
+
+            <!-- 用relative來排列工具 -->
+
+            <RelativeLayout
+                android:id="@+id/content_r"
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="right"
+                android:background="#EEDFCC"
+                android:gravity="right" >
+
+                <!-- 下拉式清單 -->
+
+                <Spinner
+                    android:id="@+id/spnMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="#CDC1C5" />
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@+id/spnMaterial"
+                    android:background="#EEDFCC" >
+
+                    <RelativeLayout
+                        android:id="@+id/changeLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="#EEDFCC" >
+
+                        <!-- 全部 -->
+
+                        <RelativeLayout
+                            android:id="@+id/all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <!-- 人物 -->
+
+                            <ImageView
+                                android:id="@+id/man"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/man" />
+
+                            <ImageView
+                                android:id="@+id/woman"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/man"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/woman" />
+
+                            <ImageView
+                                android:id="@+id/this_man"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/man"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/this_man" />
+
+                            <ImageView
+                                android:id="@+id/this_wman"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/woman"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/this_man"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/this_wman" />
+
+                            <ImageView
+                                android:id="@+id/death_man"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/this_man"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/death_man" />
+
+                            <ImageView
+                                android:id="@+id/death_wman"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/this_wman"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/death_man"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/death_wman" />
+
+                            <ImageView
+                                android:id="@+id/imp_man"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/death_man"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/imp_man" />
+
+                            <ImageView
+                                android:id="@+id/imp_wman"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/death_wman"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/imp_man"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/imp_wman" />
+
+                            <ImageView
+                                android:id="@+id/deadbaby_boy"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/imp_man"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/deadbaby_boy" />
+
+                            <ImageView
+                                android:id="@+id/deadbaby_girl"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/imp_wman"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/deadbaby_boy"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/deadbaby_girl" />
+
+                            <ImageView
+                                android:id="@+id/abortion"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/deadbaby_boy"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/abortion" />
+
+                            <ImageView
+                                android:id="@+id/antiabortion"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/deadbaby_girl"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/abortion"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/antiabortion" />
+
+                            <ImageView
+                                android:id="@+id/pregnancy"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/abortion"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/pregnancy" />
+
+                            <!-- 關係 -->
+                            
+                            <ImageView
+                                android:id="@+id/twin"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/antiabortion"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/pregnancy"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/twin" />
+
+                            <ImageView
+                                android:id="@+id/identical"
+                                android:layout_width="30dp"
+                                android:layout_height="7dp"
+                                android:layout_below="@+id/pregnancy"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/identical" />
+                            
+							 <ImageView
+                                android:id="@+id/line"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/identical"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/line" />
+
+                            <ImageView
+                                android:id="@+id/marry"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/line"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/marry" />
+
+                            <ImageView
+                                android:id="@+id/divorce"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/marry"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/divorce" />
+
+                            <ImageView
+                                android:id="@+id/cohabit"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/divorce"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/cohabit" />
+
+                            <ImageView
+                                android:id="@+id/nocohabit"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/cohabit"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/nocohabit" />
+
+                            <ImageView
+                                android:id="@+id/child_two"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/nocohabit"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/child_two" />
+
+                            <ImageView
+                                android:id="@+id/child"
+                                android:layout_width="30dp"
+                                android:layout_height="80dp"
+                                android:layout_below="@+id/child_two"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/child" />
+
+                            <ImageView
+                                android:id="@+id/adoption"
+                                android:layout_width="30dp"
+                                android:layout_height="80dp"
+                                android:layout_below="@+id/child_two"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/child"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/adoption" />
+
+                            <!-- 生態圈 -->
+
+							<ImageView
+                                android:id="@+id/line_one"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/adoption"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/line_one" />
+							 
+							 <ImageView
+                                android:id="@+id/line_two"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/line_one"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/line_two" />
+							 
+							 <ImageView
+                                android:id="@+id/dotline"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/line_two"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dotline" />
+							 
+							 <ImageView
+                                android:id="@+id/dotline_one"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/dotline"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dotline_one" />
+							 
+							 <ImageView
+                                android:id="@+id/dotline_two"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/dotline_one"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dotline_two" />
+							 
+							  <ImageView
+                                android:id="@+id/press"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/dotline_two"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/press" />
+							  
+							  <ImageView
+                                android:id="@+id/press_one"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/press"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/press_one" />
+														 
+							 <ImageView
+                                android:id="@+id/press_two"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/press_one"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/press_two" />
+							 
+                            <ImageView
+                                android:id="@+id/close"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/press_two"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/close" />
+
+                            <ImageView
+                                android:id="@+id/veryclose"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/close"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/veryclose" />
+
+                            <ImageView
+                                android:id="@+id/clash"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/veryclose"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/clash" />
+
+                            <ImageView
+                                android:id="@+id/closeclash"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/clash"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/closeclash" />
+
+                            <ImageView
+                                android:id="@+id/interrupt"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/closeclash"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/interrupt" />
+
+                            <ImageView
+                                android:id="@+id/far"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/interrupt"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/far" />
+                            
+                            <ImageView
+                                android:id="@+id/rectangle"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/far"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/rectangle" />
+
+                            <ImageView
+                                android:id="@+id/ecology"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/rectangle"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ecology" />
+
+                            <ImageView
+                                android:id="@+id/outresource"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/ecology"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/outresource" />
+                        </RelativeLayout>
+
+                        <!-- 人物 -->
+
+                        <RelativeLayout
+                            android:id="@+id/fig"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/all" >
+
+                            <ImageView
+                                android:id="@+id/man2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/man" />
+
+                            <ImageView
+                                android:id="@+id/woman2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/man2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/woman" />
+
+                            <ImageView
+                                android:id="@+id/this_man2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/man2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/this_man" />
+
+                            <ImageView
+                                android:id="@+id/this_wman2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/woman2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/this_man2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/this_wman" />
+
+                            <ImageView
+                                android:id="@+id/death_man2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/this_man2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/death_man" />
+
+                            <ImageView
+                                android:id="@+id/death_wman2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/this_wman2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/death_man2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/death_wman" />
+
+                            <ImageView
+                                android:id="@+id/imp_man2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/death_man2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/imp_man" />
+
+                            <ImageView
+                                android:id="@+id/imp_wman2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/death_wman2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/imp_man2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/imp_wman" />
+
+                            <ImageView
+                                android:id="@+id/deadbaby_boy2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/imp_man2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/deadbaby_boy" />
+
+                            <ImageView
+                                android:id="@+id/deadbaby_girl2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/imp_wman2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/deadbaby_boy2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/deadbaby_girl" />
+
+                            <ImageView
+                                android:id="@+id/abortion2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/deadbaby_boy2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/abortion" />
+
+                            <ImageView
+                                android:id="@+id/antiabortion2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/deadbaby_girl2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/abortion2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/antiabortion" />
+
+                            <ImageView
+                                android:id="@+id/pregnancy2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/abortion2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/pregnancy" />
+                        </RelativeLayout>
+
+                        <!-- 關係 -->
+
+                        <RelativeLayout
+                            android:id="@+id/rel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fig" >
+
+                            <ImageView
+                                android:id="@+id/twin2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/identical2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/twin" />
+
+                            <ImageView
+                                android:id="@+id/identical2"
+                                android:layout_width="30dp"
+                                android:layout_height="7dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/identical" />
+                            
+                            <ImageView
+                                android:id="@+id/line2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/identical2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/line" />
+							                            
+                            <ImageView
+                                android:id="@+id/marry2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/line2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/marry" />
+
+                            <ImageView
+                                android:id="@+id/divorce2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/marry2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/divorce" />
+
+                            <ImageView
+                                android:id="@+id/cohabit2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/divorce2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/cohabit" />
+
+                            <ImageView
+                                android:id="@+id/nocohabit2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/cohabit2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/nocohabit" />
+                            
+                            <ImageView
+                                android:id="@+id/child_two2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/nocohabit2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/child_two" />
+
+                            <ImageView
+                                android:id="@+id/child2"
+                                android:layout_width="30dp"
+                                android:layout_height="80dp"
+                                android:layout_below="@+id/child_two2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/child" />
+
+                            <ImageView
+                                android:id="@+id/adoption2"
+                                android:layout_width="30dp"
+                                android:layout_height="80dp"
+                                android:layout_below="@+id/child_two2"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/child2"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/adoption" />
+                        </RelativeLayout>
+
+                        <!-- 生態圈 -->
+
+                        <RelativeLayout
+                            android:id="@+id/eco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rel" >
+                            
+                            <ImageView
+                                android:id="@+id/line_one2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/line_one" />
+							 
+							 <ImageView
+                                android:id="@+id/line_two2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/line_one2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/line_two" />
+							 
+							 <ImageView
+                                android:id="@+id/dotline2"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/line_two2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dotline" />
+							 
+							 <ImageView
+                                android:id="@+id/dotline_one2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/dotline2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dotline_one" />
+							 
+							 <ImageView
+                                android:id="@+id/dotline_two2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/dotline_one2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dotline_two" />
+							 
+							  <ImageView
+                                android:id="@+id/press2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/dotline_two2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/press" />
+							  
+							  <ImageView
+                                android:id="@+id/press_one2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/press2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/press_one" />
+														 
+							 <ImageView
+                                android:id="@+id/press_two2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/press_one2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/press_two" />
+
+                            <ImageView
+                                android:id="@+id/close2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/press_two2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/close" />
+
+                            <ImageView
+                                android:id="@+id/veryclose2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/close2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/veryclose" />
+
+                            <ImageView
+                                android:id="@+id/clash2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/veryclose2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/clash" />
+
+                            <ImageView
+                                android:id="@+id/closeclash2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/clash2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/closeclash" />
+
+                            <ImageView
+                                android:id="@+id/interrupt2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/closeclash2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/interrupt" />
+
+                            <ImageView
+                                android:id="@+id/far2"
+                                android:layout_width="80dp"
+                                android:layout_height="15dp"
+                                android:layout_below="@+id/interrupt2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/far" />
+                            
+                             <ImageView
+                                android:id="@+id/rectangle2"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/far2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/rectangle" />
+
+                            <ImageView
+                                android:id="@+id/ecology2"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/rectangle2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ecology" />
+
+                            <ImageView
+                                android:id="@+id/outresource2"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/ecology2"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="35dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/outresource" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </ScrollView>
+            </RelativeLayout>
+        </SlidingDrawer>
+    </RelativeLayout>
+
+</FrameLayout>
